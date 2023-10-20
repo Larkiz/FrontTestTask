@@ -1,0 +1,35 @@
+body {
+  max-width: 1280px;
+  max-height: 720px;
+}
+
+video {
+  position: absolute;
+  max-width: 1280px;
+  max-height: 720px;
+  top: 0;
+}
+.promo-banner {
+  width: 251px;
+
+  text-align: center;
+  background-color: #86d3f4;
+  padding: 10px 10px 10px 10px;
+  position: relative;
+  left: 1009px;
+  top: 150px;
+  z-index: 1;
+}
+
+.promo-banner-btn {
+  background-color: #000;
+  color: #86d3f4;
+  border: none;
+  outline: none;
+  width: 156px;
+  height: 52px;
+}
+
+button {
+  cursor: pointer;
+}
