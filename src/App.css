@@ -33,3 +33,101 @@ video {
 button {
   cursor: pointer;
 }
+
+input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(3, 88px);
+  grid-template-rows: repeat(4, 52px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.grid-item-style {
+  background-color: #86d3f4;
+  border: 2px solid #000;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 30px;
+}
+
+.grid-item-style:focus {
+  background-color: #000;
+  color: #fff;
+}
+
+.erase-btn {
+  grid-area: 4 / 1 / 5 / 3;
+}
+
+.promo-form {
+  display: flex;
+  width: 380px;
+
+  max-height: 720px;
+  padding: 30.56px 10px;
+  flex-direction: column;
+  text-align: center;
+
+  gap: 13px;
+  flex-shrink: 0;
+  background-color: #86d3f4;
+}
+
+.btn-submit {
+  display: flex;
+  height: 52px;
+  padding: 16px 19px;
+  gap: 10px;
+  border: 1px solid #4e4e4e;
+  background-color: #86d3f4;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 284px;
+}
+
+.btn-submit:enabled {
+  background-color: #000;
+  color: #fff;
+}
+
+.checkbox-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.checkbox-input label {
+  width: 214px;
+  height: 52px;
+}
+
+.phone-input {
+  color: #000;
+
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  background-color: #86d3f4;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.close-btn {
+  position: absolute;
+  left: 1172px;
+  top: 20px;
+}
