@@ -1,6 +1,6 @@
 import video from "../assets/video/test.mp4";
 import qrCode from "../assets/img/qr_code.png";
-import { DeplayedComponent } from "../utils/DeplayedComponent";
+import { DeplayedComponent } from "../utils/serviceComponents/DeplayedComponent";
 import { Link } from "react-router-dom";
 
 export const PromoBanner = () => {

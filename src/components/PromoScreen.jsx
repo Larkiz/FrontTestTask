@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import background from "../assets/img/promo-zone_1.png";
 import { InputMask } from "primereact/inputmask";
-import { KeyboardButton } from "../utils/KeyboardButton";
-import { eraseInput } from "../utils/inputHandle";
-import { keyboardInput } from "../utils/inputHandle";
-import { handleInput } from "../utils/inputHandle";
-import { Link } from "react-router-dom";
-import { CloseButton } from "../utils/CloseBtn";
+import { KeyboardButton } from "../utils/serviceComponents/KeyboardButton";
+import { eraseInput } from "../utils/handlers/inputHandle";
+import { keyboardInput } from "../utils/handlers/inputHandle";
+import { handleInput } from "../utils/handlers/inputHandle";
+import { Link, useNavigate } from "react-router-dom";
+import { CloseButton } from "../utils/serviceComponents/CloseBtn";
 
 export const PromoScreen = () => {
+  const navigate = useNavigate();
+
   const [value, setValue] = useState("7");
   const [submitState, setSubmitState] = useState(true);
   const [checkedCheckbox, setChecked] = useState(false);
@@ -94,6 +96,7 @@ export const PromoScreen = () => {
           <input
             type="checkbox"
             id="pers"
+            onKeyDown={(e) => e.key === "Enter" && setChecked(!checkedCheckbox)}
             onChange={() => {
               setChecked(!checkedCheckbox);
             }}
@@ -106,9 +109,7 @@ export const PromoScreen = () => {
 
         <button
           disabled={submitState}
-          onClick={() => {
-            console.log(123);
-          }}
+          onClick={() => navigate("/access")}
           className="btn-submit"
         >
           <b>ПОДТВЕРДИТЬ НОМЕР</b>

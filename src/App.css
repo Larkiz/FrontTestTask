@@ -70,15 +70,43 @@ input[type="checkbox"] {
 .promo-form {
   display: flex;
   width: 380px;
-
-  max-height: 720px;
-  padding: 30.56px 10px;
+  height: 640px;
+  /* max-height: 720px; */
   flex-direction: column;
   text-align: center;
-
   gap: 13px;
   flex-shrink: 0;
   background-color: #86d3f4;
+  padding: 40px 0;
+}
+
+.promo-form h1 {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.access-screen {
+  display: flex;
+  width: 380px;
+  height: 720px;
+  max-height: 720px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  background-color: #86d3f4;
+  text-align: center;
+}
+
+.access-screen h1 {
+  width: 250px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.access-screen p {
+  text-align: center;
+  text-wrap: wrap;
 }
 
 .btn-submit {
