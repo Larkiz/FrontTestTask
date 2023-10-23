@@ -71,7 +71,6 @@ input[type="checkbox"] {
   display: flex;
   width: 380px;
   height: 640px;
-  /* max-height: 720px; */
   flex-direction: column;
   text-align: center;
   gap: 13px;
@@ -120,11 +119,6 @@ input[type="checkbox"] {
   align-items: center;
   align-self: center;
   width: 284px;
-}
-
-.btn-submit:enabled {
-  background-color: #000;
-  color: #fff;
 }
 
 .checkbox-input {

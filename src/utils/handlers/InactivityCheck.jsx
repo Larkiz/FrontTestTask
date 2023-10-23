@@ -12,8 +12,7 @@ export const InactivityCheck = ({ children }) => {
 
     time -= 1;
   }, 1000);
-  document.addEventListener("keypress", () => (time = 10));
+  document.addEventListener("keydown", () => (time = 10));
   document.addEventListener("mousemove", () => (time = 10));
-
   return children;
 };

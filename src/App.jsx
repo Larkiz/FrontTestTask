@@ -4,6 +4,7 @@ import { PromoBanner } from "./components/PromoBanner";
 import { PromoScreen } from "./components/PromoScreen";
 import { AccessScreen } from "./components/Access";
 import { InactivityCheck } from "./utils/handlers/InactivityCheck";
+import { ArrowNavigation } from "./utils/serviceComponents/ArrowNavigation";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <Route
         path="promo"
         element={
-          <InactivityCheck>
-            <PromoScreen />
-          </InactivityCheck>
+          <ArrowNavigation>
+            <InactivityCheck>
+              <PromoScreen />
+            </InactivityCheck>
+          </ArrowNavigation>
         }
       />
       <Route

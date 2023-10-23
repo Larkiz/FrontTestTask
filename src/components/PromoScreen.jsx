@@ -82,15 +82,15 @@ export const PromoScreen = () => {
           <KeyboardButton onClick={() => handleInput(9, numberContext)}>
             9
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(0, numberContext)}>
-            0
-          </KeyboardButton>
           <button
             onClick={() => eraseInput(numberContext)}
             className="erase-btn grid-item-style"
           >
             СТЕРЕТЬ
           </button>
+          <KeyboardButton onClick={() => handleInput(0, numberContext)}>
+            0
+          </KeyboardButton>
         </div>
         <div className="checkbox-input">
           <input
