@@ -7,7 +7,7 @@ export const PromoBanner = () => {
   // const
   return (
     <>
-      <DeplayedComponent time={1000}>
+      <DeplayedComponent time={5000}>
         <div className="promo-banner">
           <p>ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! ПОДАРИТЕ ЕМУ СОБАКУ!</p>
           <img src={qrCode} />
