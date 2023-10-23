@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import background from "../assets/img/promo-zone_1.png";
 import { InputMask } from "primereact/inputmask";
 import { KeyboardButton } from "../utils/serviceComponents/KeyboardButton";
@@ -37,7 +37,7 @@ export const PromoScreen = () => {
   return (
     <>
       <img style={{ position: "absolute", zIndex: -1 }} src={background} />
-      <Link to="/" className="close-btn">
+      <Link id="close" to="/" className="close-btn">
         <CloseButton />
       </Link>
       <div className="promo-form">
@@ -55,40 +55,71 @@ export const PromoScreen = () => {
           и с Вами свяжется наш менеждер для дальнейшей консультации
         </p>
         <div className="keyboard">
-          <KeyboardButton onClick={() => handleInput(1, numberContext)}>
+          <KeyboardButton
+            id="one"
+            onClick={() => handleInput(1, numberContext)}
+          >
             1
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(2, numberContext)}>
+          <KeyboardButton
+            id="two"
+            onClick={() => handleInput(2, numberContext)}
+          >
             2
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(3, numberContext)}>
+          <KeyboardButton
+            id="three"
+            onClick={() => handleInput(3, numberContext)}
+          >
             3
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(4, numberContext)}>
+          <KeyboardButton
+            id="four"
+            onClick={() => handleInput(4, numberContext)}
+          >
             4
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(5, numberContext)}>
+          <KeyboardButton
+            id="five"
+            onClick={() => handleInput(5, numberContext)}
+          >
             5
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(6, numberContext)}>
+          <KeyboardButton
+            id="six"
+            onClick={() => handleInput(6, numberContext)}
+          >
             6
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(7, numberContext)}>
+          <KeyboardButton
+            id="seven"
+            onClick={() => handleInput(7, numberContext)}
+          >
             7
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(8, numberContext)}>
+          <KeyboardButton
+            id="eight"
+            onClick={() => handleInput(8, numberContext)}
+          >
             8
           </KeyboardButton>
-          <KeyboardButton onClick={() => handleInput(9, numberContext)}>
+          <KeyboardButton
+            id="nine"
+            onClick={() => handleInput(9, numberContext)}
+          >
             9
           </KeyboardButton>
           <button
+            id="erase"
             onClick={() => eraseInput(numberContext)}
             className="erase-btn grid-item-style"
           >
             СТЕРЕТЬ
           </button>
-          <KeyboardButton onClick={() => handleInput(0, numberContext)}>
+          <KeyboardButton
+            id="zero"
+            onClick={() => handleInput(0, numberContext)}
+          >
             0
           </KeyboardButton>
         </div>
@@ -108,6 +139,7 @@ export const PromoScreen = () => {
         </div>
 
         <button
+          id="access"
           disabled={submitState}
           onClick={() => navigate("/access")}
           className="btn-submit"

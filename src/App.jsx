@@ -8,27 +8,27 @@ import { ArrowNavigation } from "./utils/serviceComponents/ArrowNavigation";
 
 function App() {
   return (
-    <Routes>
-      <Route path="" element={<PromoBanner />} />
-      <Route
-        path="promo"
-        element={
-          <ArrowNavigation>
+    <ArrowNavigation>
+      <Routes>
+        <Route path="" element={<PromoBanner />} />
+        <Route
+          path="promo"
+          element={
             <InactivityCheck>
               <PromoScreen />
             </InactivityCheck>
-          </ArrowNavigation>
-        }
-      />
-      <Route
-        path="access"
-        element={
-          <InactivityCheck>
-            <AccessScreen />
-          </InactivityCheck>
-        }
-      />
-    </Routes>
+          }
+        />
+        <Route
+          path="access"
+          element={
+            <InactivityCheck>
+              <AccessScreen />
+            </InactivityCheck>
+          }
+        />
+      </Routes>
+    </ArrowNavigation>
   );
 }
 

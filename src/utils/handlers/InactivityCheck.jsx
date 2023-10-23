@@ -5,6 +5,7 @@ export const InactivityCheck = ({ children }) => {
   let time = 10;
 
   const unactivityInteval = setInterval(() => {
+    window.location.pathname === "/" && clearInterval(unactivityInteval);
     if (time === 0) {
       clearInterval(unactivityInteval);
       return navigate("/");

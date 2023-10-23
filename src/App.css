@@ -58,7 +58,7 @@ input[type="checkbox"] {
   padding: 12px 30px;
 }
 
-.grid-item-style:focus {
+*:focus {
   background-color: #000;
   color: #fff;
 }

@@ -7,7 +7,7 @@ export const AccessScreen = () => {
     <>
       <img style={{ position: "absolute", zIndex: -1 }} src={background} />
 
-      <Link to="/" className="close-btn">
+      <Link id="close" to="/" className="close-btn">
         <CloseButton backgroundColor="black" color="white" />
       </Link>
       <div className="access-screen">

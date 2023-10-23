@@ -12,10 +12,8 @@ export const PromoBanner = () => {
           <p>ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! ПОДАРИТЕ ЕМУ СОБАКУ!</p>
           <img src={qrCode} />
           <p>Сканируйте QR-код для получения дополнительной информации</p>
-          <Link to="promo">
-            <button autoFocus className="promo-banner-btn">
-              ОК
-            </button>
+          <Link autoFocus id="access" to="promo">
+            <button className="promo-banner-btn">ОК</button>
           </Link>
         </div>
       </DeplayedComponent>

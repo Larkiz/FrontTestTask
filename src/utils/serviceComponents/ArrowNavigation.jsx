@@ -1,57 +1,61 @@
 import { useEffect, useState } from "react";
 
-const action = {
-  goTop: (prev) => ({ y: prev.y, x: prev.x - 1 }),
-  goBot: (prev) => ({ y: prev.y, x: prev.x + 1 }),
-  goLeft: (prev) => ({ y: prev.y - 1, x: prev.x }),
-  goRight: (prev) => ({ y: prev.y + 1, x: prev.x }),
+const objectTrans = {
+  one: { left: null, right: "two", top: "access", bot: "four" },
+  two: { left: "one", right: "three", top: "access", bot: "five" },
+  three: { left: "two", right: "close", top: "access", bot: "six" },
+  four: { left: null, right: "five", top: "one", bot: "seven" },
+  five: { left: "four", right: "six", top: "two", bot: "eight" },
+  six: { left: "five", right: "close", top: "three", bot: "nine" },
+  seven: { left: null, right: "eight", top: "four", bot: "erase" },
+  eight: { left: "seven", right: "nine", top: "five", bot: "erase" },
+  nine: { left: "eight", right: "close", top: "six", bot: "zero" },
+  zero: { left: "erase", right: "close", top: "nine", bot: "pers" },
+  erase: { left: null, right: "zero", top: "eight", bot: "pers" },
+  pers: { left: null, right: "close", top: "erase", bot: "access" },
+  access: { left: null, right: "close", top: "pers", bot: "one" },
+  close: { left: "three", right: null, top: "access", bot: "three" },
 };
 
 export const ArrowNavigation = ({ children }) => {
-  const [currentFocus, setCurrentFocus] = useState({ y: 0, x: 0 });
-
+  const [current, setCurrent] = useState("one");
+  const [prevent, setPrevent] = useState(null);
   useEffect(() => {
-    const navItems = [
-      ...document.querySelectorAll("button"),
-      ...document.querySelectorAll('input[type="checkbox"]'),
-      ...document.querySelectorAll("a"),
-    ];
-
-    let sliced = [];
-
-    for (let i = 0; i < navItems.length; i += 3) {
-      sliced.push(navItems.slice(i, i + 3));
-    }
     function focusHandle(event) {
       const keyPressed = event.key;
-      if (keyPressed == "ArrowUp" && currentFocus.x !== 0) {
-        setCurrentFocus((prev) => action.goTop(prev));
+      setPrevent(current);
+      if (keyPressed == "ArrowLeft") {
+        objectTrans[current].left !== null &&
+          setCurrent(objectTrans[current].left);
       }
-      if (
-        keyPressed == "ArrowDown" &&
-        currentFocus.x < sliced[currentFocus.x].length
-      ) {
-        setCurrentFocus((prev) => action.goBot(prev));
+      if (keyPressed == "ArrowRight") {
+        objectTrans[current].right !== null &&
+          setCurrent(objectTrans[current].right);
       }
-      if (keyPressed == "ArrowLeft" && currentFocus.y !== 0) {
-        setCurrentFocus((prev) => action.goLeft(prev));
+      if (keyPressed == "ArrowDown") {
+        objectTrans[current].bot !== null &&
+          setCurrent(objectTrans[current].bot);
       }
-      if (
-        keyPressed == "ArrowRight" &&
-        currentFocus.y < sliced[currentFocus.x].length - 1
-      ) {
-        setCurrentFocus((prev) => action.goRight(prev));
+      if (keyPressed == "ArrowUp") {
+        objectTrans[current].top !== null &&
+          setCurrent(objectTrans[current].top);
       }
     }
 
     document.addEventListener("keydown", focusHandle);
+    try {
+      document.getElementById(current).focus();
+    } catch (error) {
+      const idBtnArr = Object.keys(objectTrans);
 
-    sliced[currentFocus.x][currentFocus.y].focus();
+      idBtnArr.forEach((id) => {
+        document.getElementById(id) !== null && setCurrent(id);
+      });
+    }
 
     return () => {
       document.removeEventListener("keydown", focusHandle);
     };
   });
-
   return children;
 };

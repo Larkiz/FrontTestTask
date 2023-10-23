@@ -1,6 +1,6 @@
-export const KeyboardButton = ({ children, onClick }) => {
+export const KeyboardButton = ({ children, onClick, id }) => {
   return (
-    <button onClick={() => onClick()} className="grid-item-style">
+    <button onClick={() => onClick()} id={id} className="grid-item-style">
       {children}
     </button>
   );
